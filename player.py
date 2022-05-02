@@ -2,20 +2,19 @@ import pygame
 
 
 class Player:
-    def __init__(self, id: str):
+    def __init__(self, id: bytes):
         self.id = id
         
         self.speed = 200
         self.pos = pygame.Vector2()
         self.vel = pygame.Vector2()
         
-        
         self.radius = 10.0
-        self.color = pygame.Color(240, 240, 50)
+        self.color = pygame.Color(id[0], id[2], id[4])
         
         
-    def move(self, x: float, y: float):
-        self.vel += pygame.Vector2(x, y)
+    def move(self, dir_x: float, dir_y: float):
+        self.vel += pygame.Vector2(dir_x, dir_y)
         
         
     def set_pos(self, x: int, y: int):
@@ -53,4 +52,4 @@ class Player:
     
     
     def get_data(self):
-        return f"{self.id}:{int(self.pos.x)}:{int(self.pos.y)}".encode()
+        return self.id + f":{int(self.pos.x)}:{int(self.pos.y)}".encode()

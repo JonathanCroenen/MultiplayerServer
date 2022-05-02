@@ -62,4 +62,4 @@ class UdpClient:
     
     
     def data_available(self):
-        return len(select.select([self.sock], [], [])[0]) > 0
+        return len(select.select([self.sock], [], [], 0)[0]) > 0

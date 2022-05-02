@@ -1,7 +1,7 @@
 # MultiplayerServer
 
-Simple UDP socket server implementation used in a simple mutliplayer pygame demo.
-The server is set up as authoritative server.
+Simple UDP socket server implementation used in a simple mutliplayer pygame demo with 2 threads.
+The server is set up as a multithreaded authoritative server.
 
 ## Authoritative server
 
