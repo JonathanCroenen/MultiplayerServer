@@ -9,4 +9,8 @@ The server being authoritative means that all actions are calculated on the serv
 inputs and will then update the games state accordingly. Next the server will broadcast this updated gamestate to each client, allowing
 for the clients to render it out.
 
-**TODO** client side prediction and reconciliation
+The client buffers its inputs and will keep them until the server acknowledges each move. Upon acknowledgement of a move the client will 
+replay the moves from the position the server has calculated. This allows the client to move its player freely and more smoothly and update 
+the player to the servers authoritative position upon each acknoledgement. Therefore network delay is 'seemingly' removed on the clientside.
+
+**TODO** client side interpolation
